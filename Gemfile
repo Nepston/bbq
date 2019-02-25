@@ -6,6 +6,7 @@ ruby '2.5.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
 gem 'uglifier', '>= 1.3.0'
+gem 'twitter-bootstrap-rails'
 
 group :development, :test do
   gem 'sqlite3', '~> 1.3.6'
