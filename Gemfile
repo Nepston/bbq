@@ -8,7 +8,7 @@ gem 'rails', '~> 5.2.2'
 gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
-  gem 'sqlite3'
+  gem 'sqlite3', '~> 1.3.6'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
