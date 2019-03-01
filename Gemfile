@@ -7,6 +7,9 @@ ruby '2.5.1'
 gem 'rails', '~> 5.2.2'
 gem 'uglifier', '>= 1.3.0'
 gem 'twitter-bootstrap-rails'
+gem 'devise'
+
+gem 'jquery-rails', '~> 4.1'
 
 group :development, :test do
   gem 'sqlite3', '~> 1.3.6'
@@ -22,6 +25,3 @@ end
 group :production do
   gem 'pg'
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
