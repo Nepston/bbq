@@ -9,7 +9,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'twitter-bootstrap-rails'
 gem 'devise'
 
-gem 'jquery-rails', '~> 4.1'
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'sqlite3', '~> 1.3.6'
