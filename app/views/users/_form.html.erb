@@ -1,19 +1,45 @@
 <%= form_for @user, html: {multipart: true} do |f| %>
-
   <%= render partial: 'partials/form_errors', locals: {model: @user} %>
-
-  <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :email %>
-    <%= f.text_field :email, class: 'form-control' %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit 'Сохранить', class: 'btn btn-primary' %>
-    или <%= link_to 'вернуться', :back %>
-  </div>
+      <div class="row without-margin-left-rigt buffer-both">
+        <div class="col without-padding">
+          <div class="row without-margin">
+            <div class="col without-padding">
+              <%= f.label "Имя" %><br />
+            </div>
+          </div>
+          <div class="row without-margin">
+            <div class="col-xs-6 without-padding">
+              <%= f.text_field :name, class: 'form-control' %>
+            </div>
+            <div class="col-xs-1 without-padding text-center">
+              <i class="glyphicon glyphicon-user vcenter"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row without-margin-left-rigt buffer-both">
+        <div class="col without-padding">
+          <div class="row without-margin">
+            <div class="col without-padding">
+              <%= f.label :email %><br />
+            </div>
+          </div>
+          <div class="row without-margin">
+            <div class="col-xs-6 without-padding">
+              <%= f.text_field :email, class: 'form-control' %>
+            </div>
+            <div class="col-xs-1 without-padding text-center">
+              <i class="glyphicon glyphicon-envelope vcenter"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row without-margin-left-rigt buffer-both">
+        <div class="col">
+          <div class="actions">
+            <%= f.submit 'Сохранить', class: 'btn btn-primary' %>
+            или <%= link_to 'вернуться', :back %>
+          </div>
+        </div>
+      </div>
 <% end %>

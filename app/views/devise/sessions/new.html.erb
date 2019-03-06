@@ -1,71 +1,64 @@
-<div class="row without-margin">
-  <div class="col-xs-6 without-padding">
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="form-group">
-        <div class="row buffer-both">
-          <div class="col-xs-12">
-            <h2>Войти</h2>
-          </div>
-        </div>  
-        <div class="row buffer-both">
-          <div class="col-xs-10">
-            <div class="row">
-              <div class="col-xs-12">
-                <%= f.label :email %><br />
-              </div>
-            </div>
-            <div class="row without-margin">
-              <div class="col-xs-11 without-padding">
-                <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "example@example.com",  class: 'form-control' %>
-              </div>
-              <div class="col-xs-1 without-padding text-center">
-                <i class="glyphicon glyphicon-user vcenter"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row buffer-both">
-          <div class="col-xs-10">
-            <div class="row">
-              <div class="col-xs-12">
-                <%= f.label "Пароль" %><br />
-              </div>
-            </div>
-            <div class="row without-margin">
-              <div class="col-xs-11 without-padding">
-                <%= f.password_field :password, autocomplete: "current-password", placeholder: "Ваш пароль", class: 'form-control' %>
-              </div>
-              <div class="col-xs-1 without-padding text-center">
-                <i class="glyphicon glyphicon-lock vcenter"></i>
-              </div>
-            </div>
-          </div>
-        </div>
+<h2>Войти</h2>
 
-        <% if devise_mapping.rememberable? %>
-          <div class="row  buffer-both">
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="row without-margin">
+    <div class="col-xs-12 without-padding">
+      <div class="row buffer-both">
+        <div class="col-xs-10">
+          <div class="row">
             <div class="col-xs-12">
-              <%= f.check_box :remember_me, class: "form-check-input" %>
-              <%= f.label "Запомнить меня" %>
+              <%= f.label :email %><br />
             </div>
           </div>
-        <% end %>
-
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="actions">
-              <%= f.submit "Войти", class: "btn btn-primary" %>
+          <div class="row without-margin">
+            <div class="col-xs-6 without-padding">
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "example@example.com",  class: 'form-control' %>
+            </div>
+            <div class="col-xs-1 without-padding text-center">
+              <i class="glyphicon glyphicon-envelope vcenter"></i>
             </div>
           </div>
         </div>
-
-        <div class="row">
-          <div class="col-xs-12">
-            <%= render "devise/shared/links" %>
+      </div>
+      <div class="row buffer-both">
+        <div class="col-xs-10">
+          <div class="row">
+            <div class="col-xs-12">
+              <%= f.label :password %>
+            </div>
+          </div>
+          <div class="row without-margin">
+            <div class="col-xs-6 without-padding">
+              <%= f.password_field :password, autocomplete: "current-password", placeholder: "Ваш пароль", class: 'form-control' %>
+            </div>
+            <div class="col-xs-1 without-padding text-center">
+              <i class="glyphicon glyphicon-lock vcenter"></i>
+            </div>
           </div>
         </div>
+      </div>
+      <% if devise_mapping.rememberable? %>
+        <div class="row buffer-both">
+          <div class="col-xs-10">
+            <%= f.check_box :remember_me, class: "form-check-input" %>
+            <%= f.label :remember_me %>
+          </div>
+        </div>
+      <% end %>
 
-      </div>  
-    <% end %>
+      <div class="row buffer-both">
+        <div class="col-xs-12">
+          <div class="actions">
+            <%= f.submit t('actions.sign_in'), class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div class="row without-margin buffer-both">
+  <div class="col-xs-12 without-padding">
+    <%= render "devise/shared/links" %>
   </div>
 </div>

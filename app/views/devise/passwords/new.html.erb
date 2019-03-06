@@ -1,16 +1,39 @@
-<h2>Forgot your password?</h2>
+<h2>Забыли пароль?</h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+  <div class="row without-margin">
+    <div class="col-xs-12 without-padding">
+      <div class="row buffer-both">
+        <div class="col-xs-10">
+          <div class="row">
+            <div class="col-xs-12">
+              <%= f.label :email %><br />
+            </div>
+          </div>
+          <div class="row without-margin">
+            <div class="col-xs-6 without-padding">
+              <%= f.email_field :email, autofocus: true, autocomplete: "email",  class: 'form-control' %>
+            </div>
+            <div class="col-xs-1 without-padding text-center">
+              <i class="glyphicon glyphicon-envelope vcenter"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row buffer-both">
+        <div class="col-xs-12">
+          <div class="actions">
+            <%= f.submit "Восстановить", class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<div class="row without-margin buffer-both">
+  <div class="col-xs-12 without-padding">
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

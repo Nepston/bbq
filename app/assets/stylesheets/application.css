@@ -66,3 +66,8 @@
 .without-margin {
     margin: 0;
 }
+
+.without-margin-left-rigt{
+    margin-left: 0;
+    margin-right: 0;
+}
