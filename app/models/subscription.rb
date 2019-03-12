@@ -11,7 +11,7 @@ class Subscription < ApplicationRecord
                          format: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i,
                          uniqueness: {scope: :event_id},
                          unless: -> { user.present? }
-  validate :mail_is_available?, unless: -> { user.present? }
+  validate :check_mail_registered, unless: -> { user.present? }
 
   def user_name
     if user.present?
@@ -35,7 +35,7 @@ class Subscription < ApplicationRecord
     self.user_email = user_email.downcase if user_email.present?
   end
 
-  def mail_is_available?
+  def check_mail_registered
     errors.add(:user_email, :not_available) if User.find_by(email: user_email)
   end
 end

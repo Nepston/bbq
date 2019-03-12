@@ -30,4 +30,75 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    models:
+      user: 'User'
+      event: 'Event'
+      subscription: 'Subscription'
+      comment: 'Comment'
+
+    attributes:
+      user:
+        email: 'Email'
+        name: 'Name'
+        password: 'Password'
+        new_password: 'New Password'
+        current_password: 'Current password'
+        password_confirmation: 'Password confirmation'
+      event:
+        title: 'Title'
+        address: 'Address'
+        datetime: 'Datetime'
+        description: 'Description'
+      subscription:
+        user_email: 'This Email'
+
+    errors:
+      models:
+        subscription:
+          attributes:
+            user_email:
+              not_available: ' is not available :('
+
+  controllers:
+    events:
+      created: 'You successfully created new event'
+      updated: 'You successfully updated event'
+      destroyed: 'You successfully deleted event :('
+    users:
+      updated: 'You successfully updated your profile'
+    comments:
+      destroyed: 'Comment successfully deleted'
+      created: 'You comment successfully inserted'
+      error: 'Error with comment'
+    subscriptions:
+      created: 'You are successfully subscribed to this event'
+      destroyed: 'Member successfully unsubscribed'
+      error: 'subscribe/unsubscribe did not work'
+      subscribed_error: 'The subscription did not work, because You are the organizer of this event'
+
+  subscriptions:
+    subscription:
+      destroy_confirm: 'Are you sure you want to delete this subscription?'
+
+  events:
+    destroy_confirm: 'Are you sure you want to delete this event?'
+
+  app:
+    name: 'BBQ'
+    company: 'Company'
+
+  comments:
+    comment:
+      destroy_confirm: 'Are you sure you want to delete this comment?'
+
+  actions:
+    delete_profile: 'Delete profile'
+    are_you_sure: 'Are you sure?'
+    sign_up: 'Sign up'
+    sign_in: 'Sign in'
+    save: 'Save'
+    update: 'Update'
+    delete: 'Delete'
+    back: 'Back'
+    сhange: 'Change'
