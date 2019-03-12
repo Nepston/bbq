@@ -5,6 +5,8 @@ ru:
     models:
       user: 'Пользователь'
       event: 'Событие'
+      subscription: 'Подписка'
+      comment: 'Комментарий'
 
     # Перевод названий аттрибутов моделей
     attributes:
@@ -20,6 +22,15 @@ ru:
         address: 'Место проведения'
         datetime: 'Дата и время'
         description: 'Описание'
+      subscription:
+        user_email: 'Этот Email'
+
+    errors:
+      models:
+        subscription:
+          attributes:
+            user_email:
+              not_available: 'уже занят :('
 
   # Перевод сообщений, которые отправляет контроллер
   controllers:
@@ -37,6 +48,14 @@ ru:
       created: 'Вы подписаны на это событие'
       destroyed: 'Участник отписан'
       error: 'Подписка/отписка не сработала'
+      subscribed_error: 'Подписка не сработала, т.к. Вы являетесь организатором этого события'
+
+  subscriptions:
+    subscription:
+      destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
+
+  events:
+    destroy_confirm: 'Вы уверены, что хотите удалить это событие?'
 
   # Перевод названия приложения и компании-разработчика
   app:
@@ -46,13 +65,6 @@ ru:
   comments:
     comment:
       destroy_confirm: 'Вы уверены, что хотите удалить этот комменатрий?'
-
-  subscriptions:
-    subscription:
-      destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
-
-  events:
-    destroy_confirm: 'Вы уверены, что хотите удалить это событие?'
 
   actions:
     delete_profile: 'Удалить профиль'

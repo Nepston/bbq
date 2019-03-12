@@ -1,24 +1,22 @@
 class SubscriptionsController < ApplicationController
 
-  # Задаем «родительский» event для подписки
   before_action :set_event, only: [:create, :destroy]
-
-  # Задаем подписку, которую юзер хочет удалить
   before_action :set_subscription, only: [:destroy]
 
-
   def create
-    # Болванка для новой подписки
     @new_subscription = @event.subscriptions.build(subscription_params)
     @new_subscription.user = current_user
 
-    if @new_subscription.save
-      # Если сохранилась успешно, редирект на страницу самого события
+    if @event.user == current_user
+      flash.now[:alert] = I18n.t('controllers.subscriptions.subscribed_error')
+      render 'events/show'
+    elsif @new_subscription.save
       redirect_to @event, notice: I18n.t('controllers.subscriptions.created')
     else
-      # если ошибки — рендерим здесь же шаблон события
-      render 'events/show', alert: I18n.t('controllers.subscriptions.error')
+      flash.now[:alert] = I18n.t('controllers.subscriptions.error')
+      render 'events/show'
     end
+
   end
 
   def destroy
@@ -43,7 +41,6 @@ class SubscriptionsController < ApplicationController
   end
 
   def subscription_params
-    # .fetch разрешает в params отсутствие ключа :subscription
     params.fetch(:subscription, {}).permit(:user_email, :user_name)
   end
 end

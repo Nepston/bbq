@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :subscriptions, dependent: :destroy
 
-
+  before_validation :downcase_email, on: %i[create update]
 
   validates :name, presence: true, length: {maximum: 35}
 
@@ -26,6 +26,10 @@ class User < ApplicationRecord
 
   def link_subscriptions
     Subscription.where(user_id: nil, user_email: self.email)
-        .update_all(user_id: self.id)
+        .update_all(user_id: self.id, user_name: self.name)
+  end
+
+  def downcase_email
+    self.email = email.downcase if email.present?
   end
 end
