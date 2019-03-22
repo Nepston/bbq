@@ -8,6 +8,8 @@ gem 'rails', '~> 5.2.2'
 gem 'uglifier', '>= 1.3.0'
 gem 'twitter-bootstrap-rails'
 gem 'jquery-rails'
+gem 'carrierwave'
+gem 'rmagick'
 
 gem 'devise'
 gem 'devise-i18n'

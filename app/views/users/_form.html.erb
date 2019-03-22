@@ -34,6 +34,24 @@
           </div>
         </div>
       </div>
+
+      <div class="row without-margin-left-rigt buffer-both">
+        <div class="col without-padding">
+          <div class="row without-margin">
+            <div class="col without-padding">
+              <%= f.label :avatar %><br />
+            </div>
+          </div>
+          <div class="row without-margin">
+            <div class="col without-padding">
+              <p><%= image_tag(@user.avatar.thumb.url) if @user.avatar? %></p>
+              <%= f.file_field :avatar %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
       <div class="row without-margin-left-rigt buffer-both">
         <div class="col">
           <div class="actions">
