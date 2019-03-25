@@ -29,6 +29,11 @@ class PhotosController < ApplicationController
   end
 
   private
+
+    def set_event
+      @event = Event.find(params[:event_id])
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_photo
       @photo = Photo.find(params[:id])
@@ -36,6 +41,6 @@ class PhotosController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def photo_params
-      params.fetch(:photo, {})
+      params.fetch(:photo, {}).permit(:photo)
     end
 end

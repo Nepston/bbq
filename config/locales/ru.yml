@@ -7,6 +7,7 @@ ru:
       event: 'Событие'
       subscription: 'Подписка'
       comment: 'Комментарий'
+      photo: 'Фотография'
 
     # Перевод названий аттрибутов моделей
     attributes:
@@ -25,6 +26,8 @@ ru:
         description: 'Описание'
       subscription:
         user_email: 'Этот Email'
+      photo:
+        photo: 'Фотография'
 
     errors:
       models:
@@ -50,6 +53,10 @@ ru:
       destroyed: 'Участник отписан'
       error: 'Подписка/отписка не сработала'
       subscribed_error: 'Подписка не сработала, т.к. Вы являетесь организатором этого события'
+    photos:
+      error: 'Что-то не так с фотографией'
+      created: 'Вы добавили фотографию к событию'
+      destroyed: 'Вы удалили фотографию'
 
   subscriptions:
     subscription:
