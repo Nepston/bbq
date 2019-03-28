@@ -11,6 +11,8 @@ gem 'jquery-rails'
 gem 'carrierwave'
 gem 'rmagick'
 
+gem 'fog-aws'
+
 gem 'devise'
 gem 'devise-i18n'
 
