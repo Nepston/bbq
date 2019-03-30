@@ -83,25 +83,27 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.perform_caching = false
+  # Базовый урл сайта, для генерации правильных ссылок в письмах
+  # ПРОПИСЫВАЙТЕ свой!
+  config.action_mailer.default_url_options = {host: 'gotobbq.herokuapp.com'}
 
-  # Ignore bad email addresses and do not raise email delivery errors.
-  # Set this to true and configure the email server for immediate delivery to raise delivery errors.
+  # Вываливать ли посетителю сайта ошибки при отправке писем
   config.action_mailer.raise_delivery_errors = false
 
-  config.action_mailer.default_url_options = { :host => 'gotobbq.herokuapp.com'}
+  # Делать рассылку писем (если false — мэйлер только имитирует работу, реальных писем не уходит)
   config.action_mailer.perform_deliveries = true
 
+  # отправка почты по протоколу SMTP
   config.action_mailer.delivery_method = :smtp
 
-  # SMTP settings for gmail
-  config.action_mailer.smtp_settings = {
-      :address              => ENV['MAILGUN_SMTP_SERVER'],
-      :port                 => ENV['MAILGUN_SMTP_PORT'],
-      :authentication       => :plain,
-      :user_name            => ENV['MAILGUN_SMTP_LOGIN'],
-      :password             => ENV['MAILGUN_SMTP_PASSWORD'],
-      :domain               => ENV['MAILGUN_DOMAIN'],
+  # Настройки для Sendgrid
+  ActionMailer::Base.smtp_settings = {
+      :address        => 'smtp.sendgrid.net',
+      :port           => '587',
+      :authentication => :plain,
+      :user_name      => ENV['SENDGRID_USERNAME'],
+      :password       => ENV['SENDGRID_PASSWORD'],
+      :domain         => 'heroku.com',
       :enable_starttls_auto => true
   }
 end
