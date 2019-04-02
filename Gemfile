@@ -11,6 +11,9 @@ gem 'jquery-rails'
 gem 'carrierwave'
 gem 'rmagick'
 
+gem 'lightbox-bootstrap-rails', '5.1.0.1'
+gem 'sass-rails', '~> 5.0'
+
 gem 'fog-aws'
 
 gem 'devise'

@@ -59,6 +59,7 @@ ru:
       error: 'Что-то не так с фотографией'
       created: 'Вы добавили фотографию к событию'
       destroyed: 'Вы удалили фотографию'
+      destroy_confirm: 'Вы уверены, что хотите удалить это фото?'
 
   subscriptions:
     subscription:
