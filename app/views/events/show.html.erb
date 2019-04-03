@@ -9,17 +9,16 @@
           <div class="event-description">
             <h1><%= @event.title %></h1>
             <h3><%= l @event.datetime, format: :short %></h3>
-            <h3><small><%= link_to @event.address,
-                                   "https://yandex.ru/maps/?text=#{@event.address}" %></small></h3>
+            <h4><%= link_to @event.address, "https://yandex.ru/maps/?text=#{@event.address}" %></h4>
             <p><%= @event.description %></p>
           </div>
 
           <% if current_user_can_edit?(@event) %>
-            <div class="row buffer-top">
-              <div class="col-xs-3">
+            <div class="row buffer-top without-margin-left-rigt">
+              <div class="col-xs-2 without-padding">
                 <%= link_to t('actions.сhange'), edit_event_path(@event), class: 'btn btn-primary' %>
               </div>
-              <div class="col-xs-3 col-xs-1-push">
+              <div class="col-xs-2 without-padding">
                 <%= button_to t('actions.delete'),
                               event_path(@event),
                               data: { confirm: t('events.destroy_confirm') },
