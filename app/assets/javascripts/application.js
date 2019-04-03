@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require lightbox-bootstrap
+//= require_tree .
 //= stub maps

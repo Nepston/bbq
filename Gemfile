@@ -9,6 +9,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'twitter-bootstrap-rails'
 gem 'jquery-rails'
 gem 'carrierwave'
+gem 'carrierwave-i18n'
 gem 'rmagick'
 
 gem 'lightbox-bootstrap-rails', '5.1.0.1'
