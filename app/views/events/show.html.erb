@@ -15,10 +15,10 @@
 
           <% if current_user_can_edit?(@event) %>
             <div class="row buffer-top without-margin-left-rigt">
-              <div class="col-xs-2 without-padding">
+              <div class="btn-group">
                 <%= link_to t('actions.сhange'), edit_event_path(@event), class: 'btn btn-primary' %>
               </div>
-              <div class="col-xs-2 without-padding">
+              <div class="btn-group">
                 <%= button_to t('actions.delete'),
                               event_path(@event),
                               data: { confirm: t('events.destroy_confirm') },
