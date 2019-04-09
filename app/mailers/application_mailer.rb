@@ -1,7 +1,7 @@
 # Базовый класс для всех мэйлеров приложения
 class ApplicationMailer < ActionMailer::Base
   # обратный адрес всех писем по умолчанию
-  default from: "ror.tests2019@gmail.com"
+  default from: "bbq@studyrails19.com"
 
   layout 'mailer'
 end

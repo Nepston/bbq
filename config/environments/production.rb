@@ -85,7 +85,8 @@ Rails.application.configure do
 
   # Базовый урл сайта, для генерации правильных ссылок в письмах
   # ПРОПИСЫВАЙТЕ свой!
-  config.action_mailer.default_url_options = {host: 'gotobbq.herokuapp.com'}
+  #config.action_mailer.default_url_options = {host: 'gotobbq.herokuapp.com'}
+  config.action_mailer.default_url_options = {host: 'studyrails19.com'}
 
   # Вываливать ли посетителю сайта ошибки при отправке писем
   config.action_mailer.raise_delivery_errors = false
@@ -93,17 +94,26 @@ Rails.application.configure do
   # Делать рассылку писем (если false — мэйлер только имитирует работу, реальных писем не уходит)
   config.action_mailer.perform_deliveries = true
 
-  # отправка почты по протоколу SMTP
-  config.action_mailer.delivery_method = :smtp
-
   # Настройки для Sendgrid
-  ActionMailer::Base.smtp_settings = {
-      :address        => 'smtp.sendgrid.net',
-      :port           => '587',
-      :authentication => :plain,
-      :user_name      => ENV['SENDGRID_USERNAME'],
-      :password       => ENV['SENDGRID_PASSWORD'],
-      :domain         => 'heroku.com',
-      :enable_starttls_auto => true
+  # отправка почты по протоколу SMTP
+  #config.action_mailer.delivery_method = :smtp
+
+  #ActionMailer::Base.smtp_settings = {
+  #    :address        => 'smtp.sendgrid.net',
+  #    :port           => '587',
+  #    :authentication => :plain,
+  #   :user_name      => ENV['SENDGRID_USERNAME'],
+  #    :password       => ENV['SENDGRID_PASSWORD'],
+  #    :domain         => 'studyrails19.com',
+  #    :enable_starttls_auto => true
+  #}
+
+  #Настройки для Postfix
+  ActionMailer::Base.delivery_method = :sendmail
+  ActionMailer::Base.default charset: "utf-8"
+
+  ActionMailer::Base.sendmail_settings = {
+      location: "/usr/sbin/sendmail",
+      arguments: '-i -t'
   }
 end
