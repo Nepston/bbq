@@ -86,7 +86,7 @@ Rails.application.configure do
   # Базовый урл сайта, для генерации правильных ссылок в письмах
   # ПРОПИСЫВАЙТЕ свой!
   #config.action_mailer.default_url_options = {host: 'gotobbq.herokuapp.com'}
-  #config.action_mailer.default_url_options = {host: 'studyrails19.com'}
+  config.action_mailer.default_url_options = {host: 'studyrails19.com'}
 
   # Вываливать ли посетителю сайта ошибки при отправке писем
   config.action_mailer.raise_delivery_errors = false
@@ -102,7 +102,7 @@ Rails.application.configure do
   #    :address        => 'smtp.sendgrid.net',
   #    :port           => '587',
   #    :authentication => :plain,
-  #   :user_name      => ENV['SENDGRID_USERNAME'],
+  #    :user_name      => ENV['SENDGRID_USERNAME'],
   #    :password       => ENV['SENDGRID_PASSWORD'],
   #    :domain         => 'studyrails19.com',
   #    :enable_starttls_auto => true
