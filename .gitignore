@@ -32,5 +32,6 @@
 public/uploads/
 
 config/database.yml
+config/secrets.yml
 config/credentials.yml.enc
 config/master.key
