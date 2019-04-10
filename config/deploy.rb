@@ -9,6 +9,7 @@ set :repo_url, "git@github.com:Nepston/bbq.git"
 
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/home/deploy/www"
+set :linked_files, %w{config/master.key}
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
