@@ -9,7 +9,7 @@ if Rails.env.production?
         # aws_access_key_id:     ENV['S3_ACCESS_KEY'],
         # aws_secret_access_key: ENV['S3_SECRET_KEY']
 
-        provider:              Rails.application.credentials.provider,
+        provider:              'AWS',
         region:                Rails.application.credentials.s3_bucket_region,
         aws_access_key_id:     Rails.application.credentials.s3_access_key,
         aws_secret_access_key: Rails.application.credentials.s3_secret_key
