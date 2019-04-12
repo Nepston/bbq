@@ -6,29 +6,47 @@ RSpec.describe EventPolicy do
   let(:another_user) { FactoryBot.create(:user) }
   let(:event) { FactoryBot.create(:event, user: current_user) }
 
-  describe 'User try to change Event' do
-    context 'allow access for owner to' do
-      permissions :edit? do
-        it { is_expected.to permit(current_user, event) }
+  context 'user try to change event' do
+    permissions :edit? do
+      it 'access allowed for owner' do
+        expect(EventPolicy).to permit(current_user, event)
+      end
+
+      it 'access denied for non-owner' do
+        expect(EventPolicy).not_to permit(another_user, event)
+      end
+
+      it 'access denied for unauthenticated user' do
+        expect(EventPolicy).not_to permit(nil, event)
+      end
+    end
+
+    permissions :update? do
+      it 'access allowed for owner' do
+        expect(EventPolicy).to permit(current_user, event)
+      end
+
+      it 'access denied for non-owner' do
+        expect(EventPolicy).not_to permit(another_user, event)
+      end
+
+      it 'access denied for unauthenticated user' do
+        expect(EventPolicy).not_to permit(nil, event)
+      end
+    end
+
+    permissions :destroy? do
+      it 'access allowed for owner' do
+        expect(EventPolicy).to permit(current_user, event)
+      end
+
+      it 'access denied for non-owner' do
+        expect(EventPolicy).not_to permit(another_user, event)
+      end
+
+      it 'access denied for unauthenticated user' do
+        expect(EventPolicy).not_to permit(nil, event)
       end
     end
   end
 end
-
-
-#
-# context 'user try to edit, update or destroy event' do
-#   permissions :edit?, :update?, :destroy? do
-#     it 'allows access for owner' do
-#       expect(EventPolicy).to permit(user, event)
-#     end
-#
-#     it 'denies access for not owner' do
-#       expect(EventPolicy).not_to permit(other_user, event)
-#     end
-#
-#     it 'denies access for not authentificated user' do
-#       expect(EventPolicy).not_to permit(nil, event)
-#     end
-#   end
-# end
