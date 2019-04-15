@@ -10,7 +10,7 @@ gem 'twitter-bootstrap-rails'
 gem 'jquery-rails'
 gem 'carrierwave'
 gem 'carrierwave-i18n'
-gem 'rmagick'
+gem 'rmagick', '~> 3.0.0'
 gem 'lightbox-bootstrap-rails', '5.1.0.1'
 gem 'sass-rails', '~> 5.0'
 gem 'fog-aws'
@@ -21,6 +21,13 @@ gem 'rails-i18n'
 gem 'pundit', '~> 2.0', '>= 2.0.1'
 
 gem 'resque', '~> 2.0'
+
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-vkontakte'
+
+gem 'ed25519', '>= 1.2', '< 2.0'
+gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
 
 group :development, :test do
   gem 'sqlite3', '~> 1.3.6'

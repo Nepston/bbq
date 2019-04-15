@@ -260,6 +260,20 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  config.omniauth :facebook, Rails.application.credentials.omniauth_facebook_id,
+                  Rails.application.credentials.omniauth_facebook_secret,
+                  scope: 'email', image_size: 'large'
+                  #scope: 'email, user_link', image_size: 'large'
+
+  config.omniauth :vkontakte, Rails.application.credentials.omniauth_vkontakte_id,
+                  Rails.application.credentials.omniauth_vkontakte_secret,
+    {
+      :scope => 'email',
+      :lang => 'ru',
+      :https => 1,
+      :redirect_uri => 'https://www.studyrails19.com/users/auth/vkontakte/callback'
+    }
+
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
