@@ -31,7 +31,11 @@ class User < ApplicationRecord
 
     return user if user.present?
 
-    create_user(access_token, "Facebook")
+    id = access_token.extra.raw_info.id
+    url = "https://facebook.com/#{id}"
+    avatar_url = access_token.info.image
+
+    create_user_from_oauth(access_token: access_token, url: url, avatar_url: avatar_url)
   end
 
   def self.find_for_vkontakte_oauth(access_token)
@@ -40,7 +44,10 @@ class User < ApplicationRecord
 
     return user if user.present?
 
-    create_user(access_token, "Vkontakte")
+    url = access_token.info.urls[:Vkontakte]
+    avatar_url = access_token.extra.raw_info.photo_200
+
+    create_user_from_oauth(access_token: access_token, url: url, avatar_url: avatar_url)
   end
 
   private
@@ -58,22 +65,12 @@ class User < ApplicationRecord
     self.email = email.downcase if email.present?
   end
 
-  def self.create_user(access_token, network)
+  def self.create_user_from_oauth(access_token:, url:, avatar_url:)
     provider = access_token.provider
-    if network == 'Facebook'
-      id = access_token.extra.raw_info.id
-      url = "https://facebook.com/#{id}"
-    else
-      url = access_token.info.urls[network]
-    end
 
     where(url: url, provider: provider).first_or_create! do |user|
       user.name = access_token.info.name
-      if network == 'Facebook'
-        user.remote_avatar_url = access_token.info.image
-      else
-        user.remote_avatar_url = access_token.extra.raw_info.photo_200
-      end
+      user.remote_avatar_url = avatar_url
       user.email = access_token.info.email
       user.password = Devise.friendly_token.first(16)
     end
